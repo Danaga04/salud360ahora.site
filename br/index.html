@@ -8,17 +8,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação</title>
+    <title>Sua Página</title>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             color: black;
             margin: 0;
-            height: 100vh; /* Altura da tela inteira */
-            display: flex;
-            align-items: center; /* Centraliza verticalmente */
-            justify-content: center; /* Centraliza horizontalmente */
-            text-align: center; /* Centraliza o texto */
+        }
+        .message-container {
+            text-align: center; /* Centraliza o texto dentro do contêiner */
+            margin-top: 20vh; /* Ajuste a margem superior conforme necessário */
         }
         .date {
             color: red;
@@ -30,7 +29,9 @@
     </style>
 </head>
 <body>
-    <p>Assista o vídeo até o final, essa apresentação sairá do ar até dia: <span class="date" id="expiration-date"></span>!</p>
+    <div class="message-container">
+        <p>Assista o vídeo até o final, essa apresentação sairá do ar até dia: <span class="date" id="expiration-date"></span>!</p>
+    </div>
     
     <script>
         const today = new Date();
@@ -43,6 +44,7 @@
     </script>
 </body>
 </html>
+
 
  
  <script>

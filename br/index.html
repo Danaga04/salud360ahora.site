@@ -3,6 +3,39 @@
 
 <head>
 
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: black;
+            margin: 20px;
+        }
+        .date {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>Assista o vídeo até o final, essa apresentação sairá do ar até dia: <span class="date" id="expiration-date"></span>!</p>
+    
+    <script>
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0'); // Janeiro é 0!
+        const year = today.getFullYear();
+        const expirationDate = `${day}/${month}/${year}`;
+        
+        document.getElementById('expiration-date').textContent = expirationDate;
+    </script>
+</body>
+</html>
+
+ 
  <script>
   window.pixelId = "66a00ac90db5004fae949327";
   var a = document.createElement("script");

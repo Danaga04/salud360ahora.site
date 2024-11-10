@@ -7,95 +7,102 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            color: #333;
             margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
+            background-color: #f1f3f4;
+            color: #333;
+            padding: 20px;
         }
         .container {
             max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            animation: fadeIn 0.6s ease;
         }
         .header {
             color: #d32f2f;
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
-            margin-top: 60px;
+            margin: 40px 0 15px;
+            text-transform: uppercase;
         }
         .subheader {
             font-size: 18px;
-            margin: 15px 0;
-            color: #666;
+            margin: 10px 0 25px;
+            color: #555;
         }
         .button {
             display: inline-block;
-            padding: 15px 30px;
-            background-color: #4CAF50;
-            color: white;
+            padding: 18px 36px;
+            background-color: #28a745;
+            color: #ffffff;
             font-size: 20px;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
             animation: pulse 1.5s infinite;
         }
         .button:hover {
-            background-color: #45a049;
+            background-color: #218838;
         }
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
         }
         .urgency-message {
-            font-size: 1.2em;
-            font-weight: normal;
-            margin-top: 10px;
-            color: #333;
+            font-size: 1.15em;
+            margin-top: 20px;
+            color: #d32f2f;
+            font-weight: bold;
         }
         .contador {
-            font-size: 0.9em;
-            margin-top: 15px;
+            font-size: 1em;
+            margin-top: 20px;
             color: #333;
+            font-weight: bold;
         }
         .footer {
             background-color: #333;
-            color: #fff;
+            color: #ffffff;
             padding: 20px;
-            margin-top: 50px;
-            font-size: 12px;
+            margin-top: 40px;
+            font-size: 13px;
             line-height: 1.6;
+            border-radius: 8px;
         }
         .footer a {
-            color: #00f;
-            text-decoration: none;
-            margin: 0 10px;
+            color: #d1e0ff;
+            text-decoration: underline;
+        }
+        .footer hr {
+            border: 0.5px solid #555;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">¡Necesitamos tu confirmación!</div>
-        <div class="subheader">Haz clic en el botón si tienes más de 18 años y quieres continuar.</div>
+        <div class="subheader">Haz clic en el botón si tienes más de 18 años y deseas continuar.</div>
         
-        <a href="https://salud360ahora.site/?sas/" class="button">VER AHORA Y DESCUBRIR MÁS</a>
+        <a href="https://salud360ahora.site/?sas/" class="button">ASISTIR AHORA Y RESERVAR MI PLAZA GRATUITA</a>
 
         <div class="urgency-message">
-            Video gratuito disponible por tiempo limitado! <span id="contadorTempo">01:31</span> minutos restantes!!!
+            ¡Video gratuito disponible por tiempo limitado! ¡Quedan <span id="contadorTempo">01:31</span> minutos!
         </div>
 
         <div class="contador">
-            Restam apenas <span id="vagas">165</span> vagas restantes...
+            Quedan solo <span id="vagas">165</span> lugares disponibles...
         </div>
     </div>
     
     <div class="footer">
-        <a href="#">Políticas de Privacidad</a> | <a href="#">Contacto</a>
+        <a href="#">Política de Privacidad</a> | <a href="#">Contacto</a>
         <hr>
         <p>Este sitio no está afiliado a Facebook ni a ninguna entidad de Facebook. Una vez que salgas de Facebook, no es responsabilidad de Facebook sino de nuestro sitio web. Hacemos todo lo posible para declarar claramente y mostrar todas las pruebas reales del producto y usar resultados reales. No vendemos tu correo electrónico ni ninguna información a terceros. Nunca hacemos spam. Si tienes alguna pregunta, no dudes en usar el enlace de contacto y hablar con nosotros durante el horario laboral de lunes a viernes de 9 am a 6 pm. Leemos y respondemos a todos los mensajes por orden de llegada.</p>
     </div>
@@ -103,23 +110,23 @@
     <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
 
     <script>
-        // Contador de Vagas
-        let vagasRestantes = 165;
-        function atualizarVagas() {
+        // Contador de Lugares
+        let lugaresRestantes = 165;
+        function actualizarLugares() {
             const decremento = Math.floor(Math.random() * 3) + 1;
-            vagasRestantes = Math.max(50, vagasRestantes - decremento);
-            document.getElementById('vagas').textContent = vagasRestantes;
-            setTimeout(atualizarVagas, 1000);
+            lugaresRestantes = Math.max(50, lugaresRestantes - decremento);
+            document.getElementById('vagas').textContent = lugaresRestantes;
+            setTimeout(actualizarLugares, 3500); // Actualiza cada 3,5 segundos
         }
-        setTimeout(atualizarVagas, 1000);
+        setTimeout(actualizarLugares, 3500);
 
-        // Contador de Tempo
+        // Contador de Tiempo
         let minutos = 1;
         let segundos = 31;
-        function atualizarTempo() {
+        function actualizarTiempo() {
             if (segundos === 0) {
                 if (minutos === 0) {
-                    document.querySelector('.urgency-message').textContent = "Oferta expirada! Renove a página para tentar novamente.";
+                    document.querySelector('.urgency-message').textContent = "¡Oferta expirada! Actualiza la página para intentarlo de nuevo.";
                     return;
                 }
                 minutos--;
@@ -127,11 +134,11 @@
             } else {
                 segundos--;
             }
-            const formatoTempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
-            document.getElementById('contadorTempo').textContent = formatoTempo;
-            setTimeout(atualizarTempo, 1000);
+            const formatoTiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+            document.getElementById('contadorTempo').textContent = formatoTiempo;
+            setTimeout(actualizarTiempo, 1000);
         }
-        atualizarTempo();
+        actualizarTiempo();
     </script>
 </body>
 </html>
